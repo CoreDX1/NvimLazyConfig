@@ -21,6 +21,9 @@ local MayKey = {
         ["<C-j>"] = "SmartCursorMoveDown",
         ["<C-k>"] = "SmartCursorMoveUp",
         ["<C-l>"] = "SmartCursorMoveRight",
+
+        -- Csharp
+        ["<leader>cs"] = "RunCode csharp",
 	},
 }
 
