@@ -38,11 +38,13 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "path" },
 		{ name = "buffer" },
-        entry_filter = function (entry,ctx)
-            local kind = types.lsp.CompletionItemKind[entry:get_kind()]
-            if kind == "Text" then return false end
-                return true
-        end
+		entry_filter = function(entry, ctx)
+			local kind = types.lsp.CompletionItemKind[entry:get_kind()]
+			if kind == "Text" then
+				return false
+			end
+			return true
+		end,
 	}),
 })
 
@@ -50,4 +52,3 @@ vim.cmd([[
   set completeopt=menuone,noinsert,noselect
   highlight! default link CmpItemKind CmpItemMenuDefault
 ]])
-

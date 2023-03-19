@@ -15,26 +15,26 @@ local MayKey = {
 		["<leader>ld"] = "lua vim.lsp.buf.definition()",
 		["<leader>lw"] = "Telescope diagnostics",
 
-        ["K"] = "lua vim.lsp.buf.hover()",
-        ["gd"] = "lua require('omnisharp_extended').lsp_definitions()",
-        ["gD"] = "lua vim.lsp.buf.declaration()",
-        ["gi"] = "lua vim.lsp.buf.implementation()",
-        ["go"] = "lua vim.lsp.buf.type_definition()",
-        ["gr"] = "lua vim.lsp.buf.references()",
-        ["<F2>"] = "lua vim.lsp.buf.rename()",
+		["K"] = "lua vim.lsp.buf.hover()",
+		["gd"] = "lua require('omnisharp_extended').lsp_definitions()",
+		["gD"] = "lua vim.lsp.buf.declaration()",
+		["gi"] = "lua vim.lsp.buf.implementation()",
+		["go"] = "lua vim.lsp.buf.type_definition()",
+		["gr"] = "lua vim.lsp.buf.references()",
+		["<F2>"] = "lua vim.lsp.buf.rename()",
 		["<F4>"] = "lua vim.lsp.buf.code_action()",
-        -- diagnostics
-        ["gl"] = "lua vim.diagnostic.open_float()",
-        ["[d"] = "lua vim.diagnostic.goto_prev()",
-        ["]d"] = "lua vim.diagnostic.goto_next()",
-        -- Smart Splits
-        ["<C-h>"] = "SmartCursorMoveLeft",
-        ["<C-j>"] = "SmartCursorMoveDown",
-        ["<C-k>"] = "SmartCursorMoveUp",
-        ["<C-l>"] = "SmartCursorMoveRight",
+		-- diagnostics
+		["gl"] = "lua vim.diagnostic.open_float()",
+		["[d"] = "lua vim.diagnostic.goto_prev()",
+		["]d"] = "lua vim.diagnostic.goto_next()",
+		-- Smart Splits
+		["<C-h>"] = "SmartCursorMoveLeft",
+		["<C-j>"] = "SmartCursorMoveDown",
+		["<C-k>"] = "SmartCursorMoveUp",
+		["<C-l>"] = "SmartCursorMoveRight",
 
-        -- Csharp
-        ["<leader>cs"] = "RunCode csharp",
+		-- Csharp
+		["<leader>cs"] = "RunCode csharp",
 	},
 }
 

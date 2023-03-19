@@ -7,9 +7,9 @@ require("plugins.lsconfig")
 require("plugins.treesitter")
 require("plugins.telescope")
 require("plugins.nvim-tree")
-require("lsp-zero")
---require("codeium")
-
+require("plugins.lsp-zero")
+require("plugins.autoclose")
+require("plugins.codeium")
 
 -- KeyMap
 require("keymaps.keymaps")

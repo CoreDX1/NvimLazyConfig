@@ -3,10 +3,9 @@ if not status then
 	return
 end
 
-
 color.setup({
 	-- A list of parser names, or "all"
-	ensure_installed = {"http", "json"},
+	ensure_installed = { "http", "json" },
 
 	sync_install = true,
 

@@ -16,7 +16,7 @@ tree.setup({
 	},
 	renderer = {
 		group_empty = true,
-        highlight_git = false,
+		highlight_git = false,
 		icons = {
 			webdev_colors = true,
 			git_placement = "before",
