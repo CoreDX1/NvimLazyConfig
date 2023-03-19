@@ -48,21 +48,11 @@ lazy.setup({
 	-- Treesitter
 	"nvim-treesitter/nvim-treesitter",
 	-- File explorer
-	{
-		"j-morano/buffer_manager.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		config = function()
-			require("buffer_manager").setup()
-		end,
-	},
+	"nvim-lua/plenary.nvim",
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.1",
 	},
-	"nvim-telescope/telescope-file-browser.nvim",
-
 	-- Auto Close
 	"m4xshen/autoclose.nvim",
 	-- Theme
