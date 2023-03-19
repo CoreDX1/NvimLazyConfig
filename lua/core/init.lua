@@ -10,6 +10,7 @@ require("plugins.nvim-tree")
 require("plugins.lsp-zero")
 require("plugins.autoclose")
 require("plugins.codeium")
+require("plugins.code-runner")
 
 -- KeyMap
 require("keymaps.keymaps")

@@ -23,7 +23,6 @@ lazy.setup({
 			{ "neovim/nvim-lspconfig", lazy = false, priority = 1000 }, -- Required
 			{ "williamboman/mason.nvim" }, -- Optional
 			{ "williamboman/mason-lspconfig.nvim" }, -- Optional
-
 			-- Autocompletion
 			{ "hrsh7th/nvim-cmp" }, -- Required
 			{ "hrsh7th/cmp-nvim-lsp" }, -- Required
@@ -32,51 +31,34 @@ lazy.setup({
 			{ "saadparwaiz1/cmp_luasnip" }, -- Optional
 			{ "hrsh7th/cmp-nvim-lua" }, -- Optional
 			{ "hrsh7th/cmp-cmdline" },
-
 			-- Snippets
 			{
 				"L3MON4D3/LuaSnip",
 				version = "<CurrentMajor>.*",
-				-- install jsregexp (optional!).
 				build = "make install_jsregexp",
 			}, -- Required
 			{ "rafamadriz/friendly-snippets" }, -- Optional
 		},
 	},
-	-- AutoCompletado por IA
-	"Exafunction/codeium.vim",
-	-- Treesitter
-	"nvim-treesitter/nvim-treesitter",
-	-- File explorer
-	"nvim-lua/plenary.nvim",
+	{
+		"akinsho/bufferline.nvim",
+		tag = "v3.*",
+		config = function()
+			require("bufferline").setup({})
+		end,
+	},
+	"Exafunction/codeium.vim", -- AutoCompletado por IA
+	"nvim-treesitter/nvim-treesitter", -- Treesitter
+	"nvim-lua/plenary.nvim", -- File explorer
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.1",
 	},
-	-- Auto Close
-	"m4xshen/autoclose.nvim",
-	-- Theme
-	"Tsuzat/NeoSolarized.nvim",
-	-- File Explorer
-	"kyazdani42/nvim-tree.lua",
-	-- Smart splits
-	"mrjones2014/smart-splits.nvim",
-	-- Code Runner
-	{
-		"CRAG666/code_runner.nvim",
-		config = function()
-			require("code_runner").setup({
-				-- put here the commands by filetype
-				mode = "toggle",
-				term = {
-					position = "bot",
-					size = 5,
-				},
-				filetype = {
-					csharp = "dotnet run",
-				},
-			})
-		end,
-	},
-	"Hoffs/omnisharp-extended-lsp.nvim",
+	"m4xshen/autoclose.nvim", -- Auto Close
+	"Tsuzat/NeoSolarized.nvim", -- Theme
+	"kyazdani42/nvim-tree.lua", -- File Explorer
+	"mrjones2014/smart-splits.nvim", -- Smart splits
+	"CRAG666/code_runner.nvim", -- Code Runner
+	"Hoffs/omnisharp-extended-lsp.nvim", -- LSP omnisharp integration
+	"nvim-tree/nvim-web-devicons",
 })

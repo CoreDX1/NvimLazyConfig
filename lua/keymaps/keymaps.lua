@@ -14,7 +14,6 @@ local MayKey = {
 		-- LSP
 		["<leader>ld"] = "lua vim.lsp.buf.definition()",
 		["<leader>lw"] = "Telescope diagnostics",
-
 		["K"] = "lua vim.lsp.buf.hover()",
 		["gd"] = "lua require('omnisharp_extended').lsp_definitions()",
 		["gD"] = "lua vim.lsp.buf.declaration()",
@@ -32,7 +31,6 @@ local MayKey = {
 		["<C-j>"] = "SmartCursorMoveDown",
 		["<C-k>"] = "SmartCursorMoveUp",
 		["<C-l>"] = "SmartCursorMoveRight",
-
 		-- Csharp
 		["<leader>cs"] = "RunCode csharp",
 	},
