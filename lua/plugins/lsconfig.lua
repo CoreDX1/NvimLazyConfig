@@ -1,52 +1,68 @@
-local opts = { noremap=true, silent=true }
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+local function lsp_settings()
+  local sign = function(opts)
+    vim.fn.sign_define(opts.name, {
+      texthl = opts.name,
+      text = opts.text,
+      numhl = ''
+    })
+  end
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  sign({name = 'DiagnosticSignError', text = '✘'})
+  sign({name = 'DiagnosticSignWarn', text = '▲'})
+  sign({name = 'DiagnosticSignHint', text = '⚑'})
+  sign({name = 'DiagnosticSignInfo', text = ''})
 
-  -- Mappings.
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.er, bufopts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-  vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-  vim.keymap.set('n', '<space>wl', function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, bufopts)
-  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+  vim.diagnostic.config({
+    virtual_text = false,
+    signs = true,
+    update_in_insert = false,
+    underline = true,
+    severity_sort = true,
+    float = {
+      focusable = false,
+      style = 'minimal',
+      border = 'rounded',
+      source = 'always',
+      header = '',
+      prefix = '',
+    },
+  })
+
+  vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+    vim.lsp.handlers.hover,
+    {border = 'rounded'}
+  )
+
+  vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+    vim.lsp.handlers.signature_help,
+    {border = 'rounded'}
+  )
+
+  local command = vim.api.nvim_create_user_command
+
+  command('LspWorkspaceAdd', function()
+    vim.lsp.buf.add_workspace_folder()
+  end, {desc = 'Add folder to workspace'})
+
+  command('LspWorkspaceList', function()
+    vim.notify(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  end, {desc = 'List workspace folders'})
+
+  command('LspWorkspaceRemove', function()
+    vim.lsp.buf.remove_workspace_folder()
+  end, {desc = 'Remove folder from workspace'})
 end
 
-local lsp_flags = {
-  debounce_text_changes = 150,
-}
+local function lsp_attach(client, bufnr)
+  local buf_command = vim.api.nvim_buf_create_user_command
 
-local servers = {
-    --'csharp_ls',
-    --'omnisharp',
-    --'bashls',
-    --'tsserver'
-}
-
-for _, lsp in ipairs(servers) do
-    require('lspconfig')[lsp].setup {
-        on_attach = on_attach,
-        flags = lsp_flags,
-    }
+  buf_command(bufnr, 'LspFormat', function()
+    vim.lsp.buf.format()
+  end, {desc = 'Format buffer with language server'})
 end
+
+lsp_settings()
+
 
 require('lspconfig').lua_ls.setup{
     on_attach = on_attach,
@@ -59,4 +75,3 @@ require('lspconfig').lua_ls.setup{
         }
     }
 }
-
