@@ -33,6 +33,10 @@ local MayKey = {
 		["<C-l>"] = "SmartCursorMoveRight",
 		-- Csharp
 		["<leader>cs"] = "RunCode csharp",
+
+        -- Buffer Line
+        ["<S-h>"] = "BufferLineCyclePrev",
+        ["<S-l>"] = "BufferLineCycleNext"
 	},
 }
 
