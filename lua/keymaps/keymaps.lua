@@ -36,7 +36,8 @@ local MayKey = {
 
         -- Buffer Line
         ["<S-h>"] = "BufferLineCyclePrev",
-        ["<S-l>"] = "BufferLineCycleNext"
+        ["<S-l>"] = "BufferLineCycleNext",
+        ["<leader>x"] = "BufferLinePickClose"
 	},
 }
 
