@@ -21,4 +21,4 @@ NeoSolarized.setup({
 })
 
 -- Ejecutar el comando:
-vim.cmd([[colorscheme NeoSolarized]])
+vim.cmd([[colorscheme github_dark]])
