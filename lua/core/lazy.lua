@@ -61,4 +61,5 @@ lazy.setup({
 	"CRAG666/code_runner.nvim", -- Code Runner
 	"Hoffs/omnisharp-extended-lsp.nvim", -- LSP omnisharp integration
 	"nvim-tree/nvim-web-devicons",
+    "gbprod/nord.nvim"
 })
