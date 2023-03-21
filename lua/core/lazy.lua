@@ -20,7 +20,7 @@ lazy.setup({
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		dependencies = {
-			{ "neovim/nvim-lspconfig", lazy = false, priority = 1000 }, -- Required
+			{ "neovim/nvim-lspconfig", lazy = false , priority = 1000 }, -- Required
 			{ "williamboman/mason.nvim" }, -- Optional
 			{ "williamboman/mason-lspconfig.nvim" }, -- Optional
 			-- Autocompletion
@@ -34,15 +34,11 @@ lazy.setup({
 			-- Snippets
 			{
 				"L3MON4D3/LuaSnip",
-				version = "<CurrentMajor>.*",
-				build = "make install_jsregexp",
 			}, -- Required
-			{ "rafamadriz/friendly-snippets" }, -- Optional
 		},
 	},
 	{
 		"akinsho/bufferline.nvim",
-		tag = "v3.*",
 		config = function()
 			require("bufferline").setup({})
 		end,
@@ -50,16 +46,23 @@ lazy.setup({
 	"Exafunction/codeium.vim", -- AutoCompletado por IA
 	"nvim-treesitter/nvim-treesitter", -- Treesitter
 	"nvim-lua/plenary.nvim", -- File explorer
-	{
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.1",
-	},
+	"nvim-telescope/telescope.nvim",
 	"m4xshen/autoclose.nvim", -- Auto Close
 	"Tsuzat/NeoSolarized.nvim", -- Theme
 	"kyazdani42/nvim-tree.lua", -- File Explorer
 	"mrjones2014/smart-splits.nvim", -- Smart splits
 	"CRAG666/code_runner.nvim", -- Code Runner
 	"Hoffs/omnisharp-extended-lsp.nvim", -- LSP omnisharp integration
-	"nvim-tree/nvim-web-devicons",
-    "gbprod/nord.nvim"
+	{
+		"projekt0n/github-nvim-theme",
+		config = function()
+			require("github-theme").setup({
+				theme_style = "dark",
+                  comment_style = "NONE",
+                  keyword_style = "italic",
+                  function_style = "NONE",
+                  variable_style = "italic"
+			})
+		end,
+	},
 })
