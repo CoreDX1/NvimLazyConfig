@@ -34,10 +34,10 @@ local MayKey = {
 		-- Csharp
 		["<leader>cs"] = "RunCode csharp",
 
-        -- Buffer Line
-        ["<S-h>"] = "BufferLineCyclePrev",
-        ["<S-l>"] = "BufferLineCycleNext",
-        ["<leader>x"] = "BufferLinePickClose"
+		-- Buffer Line
+		["<S-h>"] = "BufferLineCyclePrev",
+		["<S-l>"] = "BufferLineCycleNext",
+		["<leader>x"] = "BufferLinePickClose",
 	},
 }
 
