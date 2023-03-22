@@ -11,6 +11,7 @@ require("plugins.lsp-zero")
 require("plugins.autoclose")
 require("plugins.codeium")
 require("plugins.code-runner")
+require("plugins.null-ls")
 
 -- KeyMap
 require("keymaps.keymaps")

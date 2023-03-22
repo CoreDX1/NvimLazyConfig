@@ -20,7 +20,7 @@ lazy.setup({
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		dependencies = {
-			{ "neovim/nvim-lspconfig", lazy = false , priority = 1000 }, -- Required
+			{ "neovim/nvim-lspconfig", lazy = false, priority = 1000 }, -- Required
 			{ "williamboman/mason.nvim" }, -- Optional
 			{ "williamboman/mason-lspconfig.nvim" }, -- Optional
 			-- Autocompletion
@@ -58,11 +58,12 @@ lazy.setup({
 		config = function()
 			require("github-theme").setup({
 				theme_style = "dark",
-                  comment_style = "NONE",
-                  keyword_style = "italic",
-                  function_style = "NONE",
-                  variable_style = "italic"
+				comment_style = "NONE",
+				keyword_style = "italic",
+				function_style = "NONE",
+				variable_style = "italic",
 			})
 		end,
 	},
+	"jose-elias-alvarez/null-ls.nvim", -- Formatting
 })
