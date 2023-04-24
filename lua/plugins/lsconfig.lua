@@ -49,7 +49,7 @@ local function lsp_settings()
 end
 
 -- Formaterr
-
+--[[
 local async_formatting = function(bufnr)
 	bufnr = bufnr or vim.api.nvim_get_current_buf()
 
@@ -82,7 +82,8 @@ local async_formatting = function(bufnr)
 end
 
 -- End of Formaterr
-
+--]]
+--
 lsp_settings()
 
 require("lspconfig").lua_ls.setup({
@@ -96,3 +97,11 @@ require("lspconfig").lua_ls.setup({
 		},
 	},
 })
+
+
+require('lspconfig').elixirls.setup {
+  cmd = { "elixir-ls" },
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+

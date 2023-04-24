@@ -5,6 +5,7 @@ local map = Utils.noremap
 local MayKey = {
 	["n"] = {
 		["<leader>w"] = "w",
+        ["<leader>fn"] = "lua vim.lsp.buf.format()",
 		-- Telescope
 		["<leader>ff"] = "Telescope find_files",
 		["<leader>fg"] = "Telescope live_grep",
@@ -33,6 +34,7 @@ local MayKey = {
 		["<C-l>"] = "SmartCursorMoveRight",
 		-- Csharp
 		["<leader>cs"] = "RunCode csharp",
+        ["<leader>ct"] = "RunClose",
 
 		-- Buffer Line
 		["<S-h>"] = "BufferLineCyclePrev",
