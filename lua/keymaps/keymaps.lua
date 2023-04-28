@@ -22,7 +22,7 @@ local MayKey = {
 		["go"] = "lua vim.lsp.buf.type_definition()",
 		["gr"] = "lua vim.lsp.buf.references()",
 		["<F2>"] = "lua vim.lsp.buf.rename()",
-		["<F4>"] = "lua vim.lsp.buf.code_action()",
+		["<C-.>"] = "lua vim.lsp.buf.code_action()",
 		-- diagnostics
 		["gl"] = "lua vim.diagnostic.open_float()",
 		["[d"] = "lua vim.diagnostic.goto_prev()",
